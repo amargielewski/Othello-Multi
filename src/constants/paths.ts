@@ -1,4 +1,5 @@
 export const paths = {
-  main: "/",
-  rules: "/rules",
+    main: '/',
+    rules: '/rules',
+    login: '/login',
 };
