@@ -11,20 +11,12 @@ export const Input = ({ type = 'text', ...props }: InputProps) => {
     const [togglePassword, setTogglePassword] = useState(false);
 
     if (type === 'text')
-        return (
-            <StyledInput
-                appereance={type}
-                type={'text'}
-                {...props}
-                autoComplete="off"
-            />
-        );
+        return <StyledInput appereance={type} type={'text'} {...props} />;
     if (type === 'password')
         return (
             <StyledInputWrapper>
                 <StyledInput
                     appereance={type}
-                    autoComplete="off"
                     type={togglePassword ? 'text' : 'password'}
                     {...props}
                 />

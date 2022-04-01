@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { ThemeContext } from 'styled-components';
 import { breakpoints } from '../../constants/breakpoints';
 
 export const StyledWrapper = styled.div`
@@ -8,7 +8,7 @@ export const StyledWrapper = styled.div`
     justify-content: center;
     padding: 15px 0;
     position: relative;
-    border: 1px solid ${({ theme }) => theme.colors.primary_text}10;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.primary_text}10;
 `;
 
 export const StyledMenuContainer = styled.div`
@@ -101,10 +101,6 @@ export const StyledMenuLink = styled(NavLink)`
     }
 `;
 
-export const StyledMenuLinkText = styled.p`
-    font-size: 24px;
-`;
-
 export const StyledTitleContainer = styled.div`
     width: 100%;
     justify-content: space-between;
@@ -119,4 +115,28 @@ export const StyledMenuToggleButton = styled.div`
     @media (max-width: ${breakpoints.s}px) {
         display: block;
     }
+`;
+
+export const StyledLogoutButton = styled.button`
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0 10px;
+    color: ${({ theme }) => theme.colors.primary_text};
+    background: transparent;
+    border: 1px solid ${({ theme }) => theme.colors.primary_text};
+    font-size: ${({ theme }) => theme.fontSizes.s}px;
+    border-radius: ${({ theme }) => theme.borderRadius.primary}px;
+    padding: 3px 10px;
+    transition: 0.3s ease-in;
+    cursor: pointer;
+
+    :hover {
+        background-color: ${({ theme }) => theme.colors.primary_text};
+        color: ${({ theme }) => theme.colors.primary_background};
+    }
+`;
+
+export const StyledMenuLinkText = styled.p`
+    font-size: 24px;
 `;

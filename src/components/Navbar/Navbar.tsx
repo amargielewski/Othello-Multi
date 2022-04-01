@@ -1,25 +1,31 @@
-//Icons
-import { PlayIcon } from '../../Icons/PlayIcon';
-import { RulesIcon } from '../../Icons/RulesIcon';
+import { useState } from 'react';
+import { Transition } from 'react-transition-group';
 
-import { paths } from '../../constants/paths';
+//Icons
+import {
+    PlayIcon,
+    RulesIcon,
+    CloseIcon,
+    LogoutIcon,
+    UserIcon,
+    HamburgerIcon,
+} from 'Icons';
+
+//paths
+import { paths } from 'constants/paths';
 
 //styles
-
 import {
     StyledLinkContainer,
+    StyledLogoutButton,
     StyledMenuContainer,
-    StyledMenuLink,
     StyledMenuLinkText,
     StyledMenuToggleButton,
     StyledTitle,
     StyledTitleContainer,
     StyledWrapper,
 } from './Navbar.styled';
-import { HamburgerIcon } from '../../Icons/HamburgerIcon';
-import { useState } from 'react';
-import { Transition } from 'react-transition-group';
-import { CloseIcon } from '../../Icons/CloseIcon';
+import { NavbarLink } from './NavbarLink/NavbarLink';
 
 export const Navbar = () => {
     const [displayMenu, setDisplayMenu] = useState(false);
@@ -50,14 +56,25 @@ export const Navbar = () => {
                             className={state}
                             toggleVisibility={displayMenu}
                         >
-                            <StyledMenuLink to={paths.main}>
-                                <StyledMenuLinkText>Game</StyledMenuLinkText>
-                                <PlayIcon />
-                            </StyledMenuLink>
-                            <StyledMenuLink to={paths.rules}>
-                                <StyledMenuLinkText>Rules</StyledMenuLinkText>
-                                <RulesIcon />
-                            </StyledMenuLink>
+                            <NavbarLink
+                                icon={<PlayIcon />}
+                                linkTo="main"
+                                linkText="Game"
+                            />
+                            <NavbarLink
+                                icon={<RulesIcon />}
+                                linkTo="rules"
+                                linkText="Rules"
+                            />
+                            <NavbarLink
+                                icon={<UserIcon />}
+                                linkText="Profile"
+                                linkTo="user"
+                            />
+                            <StyledLogoutButton>
+                                <StyledMenuLinkText>Logout</StyledMenuLinkText>
+                                <LogoutIcon />
+                            </StyledLogoutButton>
                         </StyledLinkContainer>
                     </StyledMenuContainer>
                 </StyledWrapper>

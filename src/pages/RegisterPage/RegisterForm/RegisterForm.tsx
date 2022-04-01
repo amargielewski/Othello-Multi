@@ -1,17 +1,18 @@
 import { FormEvent, useState } from 'react';
-import { Button } from 'components/Button/Button';
-import { Input } from 'components/Input/Input';
-import { Label } from 'components/Label/Label';
-import { StyledForm, StyledLink } from './LoginForm.styled';
+import { Button } from '../../../components/Button/Button';
+import { Input } from '../../../components/Input/Input';
+import { Label } from '../../../components/Label/Label';
+import { StyledForm, StyledLink } from './RegisterForm.styled';
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        console.log(username, password);
+        console.log(username, password, confirmPassword);
     };
 
     return (
@@ -29,10 +30,15 @@ export const LoginForm = () => {
                     onChange={e => setPassword(e.target.value)}
                 />
             </Label>
+            <Label labelText="Confirm password">
+                <Input
+                    type="password"
+                    value={confirmPassword}
+                    onChange={e => setConfirmPassword(e.target.value)}
+                />
+            </Label>
             <Button>Submit</Button>
-            <StyledLink to="/register">
-                Don't have an account yet? Sign up
-            </StyledLink>
+            <StyledLink to="/login">Already have account? Sign in</StyledLink>
         </StyledForm>
     );
 };

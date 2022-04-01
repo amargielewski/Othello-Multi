@@ -4,7 +4,7 @@ import { StyledTitle, StyledWrapper } from './LoginPage.styled';
 export const LoginPage = () => {
     return (
         <StyledWrapper>
-            <StyledTitle>Login</StyledTitle>
+            <StyledTitle>Sign In</StyledTitle>
             <LoginForm />
         </StyledWrapper>
     );
